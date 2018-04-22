@@ -1,0 +1,337 @@
+@charset "utf-8";
+.booking_wrap{
+    padding: 0 .3rem;
+    margin-bottom: 3.7rem;
+}
+.booking_info{
+    background: #fff;
+    border-radius: 4px;
+    padding: .5rem;
+}
+.flight_ico{
+    color: #59AAFF;
+    background: #E9F4FF;
+    border-radius: 50%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+.flight_ico i{
+    font-size: 14px;
+}
+.flight_details{
+    margin-top: .2rem;
+}
+.flight_roughly{
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: .5rem;
+}
+.flight_advantage{
+    color: #4AC29A;
+    line-height: 1.5rem;
+    padding: .5rem .5rem 0;
+    font-size: .6rem;
+}
+.flight_advantage div{
+    position: relative;
+    padding-left: 20px;
+}
+.flight_advantage i{
+    display: inline-block;
+    width: 15px;
+    position: absolute;
+    left: 0;
+    top: 1px;
+}
+.flight_details_pop{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    padding: 0 .3rem;
+    z-index: 99;
+}
+.flight_details_box{
+    background: #fff;
+    position: absolute;
+    top: 40%;
+    width: 97%;
+    border-radius: 4px;
+    padding: .5rem 0;
+}
+.aircraft_info{
+    font-size: .6rem;
+    margin: .5rem .5rem .8rem 1rem;
+}
+.flight_date{
+    font-size: 1.3rem;
+    color: #333;
+}
+.flight_city{
+    color: #696969;
+    margin: .3rem 0;
+    font-size: .6rem;
+}
+.date_city{
+    width: 40%;
+}
+.flight_arrow{
+    margin: .6rem 0;
+}
+.flight_arrow i:before{
+    content: ' ';
+    display: inline-block;
+    width: 3rem;
+    border-top: 1px solid #ccc;
+}
+.flight_arrow i:after{
+    content: ' ';
+    display: inline-block;
+    border-style: solid;
+    border-width: .3rem .3rem .3rem 0;
+    border-color: transparent transparent #ccc;
+}
+.flight_airline{
+    color: #696969;
+    font-size: .6rem;
+}
+.flight_airline i{
+    position: relative;
+    top: 3px;
+}
+.details_pop_tit{
+    position: absolute;
+    top: 35%;
+    color: #fff;
+    padding-left: .3rem;
+}
+.flight_card{
+    margin-top: .5rem;
+}
+.flight_card span{
+    color: #666;
+}
+.flight_card span:last-child:before{
+    display: inline-block;
+    content: ' ';
+    border-left: 1px solid #ccc;
+    height: 10px;
+    margin-right: 5px;
+}
+
+.passenger_wrap{
+    background: #fff;
+    border-radius: 4px;
+    margin: .3rem 0;
+    padding: .5rem;
+}
+.passenger_tit{
+    color: #888;
+    font-size: .9rem;
+    margin-top: .3rem;
+}
+.passenger_number{
+    font-size: .6rem;
+    color: #888;
+}
+
+.fill_item{
+    position: relative;
+    margin-left: 2rem;
+}
+.fill_delete{
+    position: absolute;
+    left: -2rem;
+    top: 1rem;
+}
+.fill_delete i{
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid #FF6767;
+    text-align: center;
+    line-height: .7rem;
+    border-radius: 50%;
+}
+.fill_delete i:after{
+    display: inline-block;
+    content: ' ';
+    border-top: 1px solid #FF6767;
+    width: .5rem;
+}
+.fill_input{
+    border-bottom: 1px solid #D8D8D8;
+    position: relative;
+}
+.fill_input input,.fill_input select{
+    width: 100%;
+    border: none;
+    color: #333;
+    height: 3rem;
+    padding-top: 1rem;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+}
+.fill_hint{
+    color: #ccc;
+    position: absolute;
+    top: 1rem;
+    font-size: .9rem;
+}
+div.hint_selected{
+    top: .4rem;
+    font-size: .6rem;
+}
+.error_hint{
+    color: #E30609;
+    margin-top: .2rem;
+}
+.error_hint i{
+    position: relative;
+    top: 2px;
+}
+.add_passenger{
+    padding: 1rem 0;
+    color: #008DDC;
+}
+.add_passenger span{
+    border: 1px solid #008DDC;
+    border-radius: 50%;
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    text-align: center;
+}
+.add_passenger i{
+    font-size: .8rem;
+}
+.phone_input{
+    border-top: 1px dashed #C2CCD8;
+    position: relative;
+}
+.phonecode_tit{
+    width:80px;
+    position: absolute;
+    top: 1rem;
+}
+.phone_input .fill_input{
+    margin-left: 80px;
+}
+
+.voucher_wrap{
+    border-radius: 4px;
+    padding: 0 .5rem;
+    background: #fff;
+}
+.voucher_select{
+    padding: .5rem 0;
+    line-height: 2rem;
+}
+.voucher_box{
+    padding-bottom: .5rem;
+}
+
+.cost_details{
+    padding: .5rem;
+    background: #2484DC;
+    color: #fff;
+    margin: .3rem 0;
+    border-radius: 4px;
+}
+.price_list>div{
+    width: 25%;
+}
+.cost_details p{
+    padding: .5rem 1rem;
+}
+.rule_details{
+    position: absolute;
+    top: 100%;
+    background: #EFEFF4;
+    height: 100%;
+    z-index: 99;
+}
+.rule_tit{
+    color: #3D4145;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.rule_bd{
+    padding: .5rem;
+    line-height: 1.3rem;
+}
+.rule_btn{
+    margin: 1rem .5rem;
+}
+
+.price_pop{
+    position: fixed;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    background: #EFEFF4;
+    z-index: 99;
+}
+.price_tit{
+    font-size: 1rem;
+    background: #F7F7F8;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    position: relative;
+}
+.price_tit span{
+    position: absolute;
+    right: 0;
+}
+.type_title{
+    background: #EFEFF4;
+    font-weight: 700;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding-left: .5rem;
+    color: #8C8C8D;
+}
+.price_type_list{
+    background: #fff;
+}
+.price_type_item{
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 .5rem;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+}
+
+html {
+    font-size: 16px;
+}
+@media only screen and (min-width: 400px) {
+    html {
+        font-size: 17px !important;
+    }
+}
+@media only screen and (min-width: 414px) {
+    html {
+        font-size: 19px !important;
+    }
+}
+@media only screen and (min-width: 480px) {
+    html {
+        font-size: 20px !important;
+    }
+}
+@media only screen and (min-width: 750px) {
+    html {
+        font-size: 22px !important;
+    }
+}
+@media only screen and (min-width: 1242px) {
+    html {
+        font-size: 25px !important;
+    }
+}

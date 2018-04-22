@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="light7.css"/>
+    <link rel="stylesheet" href="1.css"/>
+    <link rel="stylesheet" href="index.css"/>
+
+    <script src="jquery-1.8.3.min.js"></script>
+    <script src="light7.js"></script>
+    <title>填写资料</title>
+</head>
+<body>
+<!-- page 2 -->
+<div class="page page-current">
+    <header class="bar bar-nav fixation_hd">
+        <button class="button pull-left" onclick="$.router.back('flight_list.html')">
+            <i class="iconfont icon-xiangzuo"></i>
+        </button>
+        <h1 class="title">填写乘机人</h1>
+    </header>
+    <div class="booking_wrap">
+        <div class="booking_info">
+            <div class="flight_roughly" onclick="flightInfo()">
+                <span class="flight_ico"><i class="iconfont icon-feiji1"></i></span>
+                3月11日&nbsp;21:00起飞&nbsp;首都T2-虹桥T2
+                <div class="pull-right flight_details"><i class="iconfont icon-xiangyou"></i></div>
+            </div>
+            <div class="flight_advantage">
+                <div>
+                    <i class="iconfont icon-feiji1" style="left: -5px;"></i>
+                    大机型座位宽，飞行更平稳不颠簸
+                </div>
+                <div>
+                    <i class="iconfont icon-wodefapiao"></i>
+                    出票快：支付后平均2分钟内完成出票
+                </div>
+            </div>
+        </div>
+        <div class="passenger_wrap">
+            <div class="passenger_tit">
+                乘机人
+            </div>
+            <div class="passenger_number">
+                <span id="howMany">1</span>人&nbsp;婴儿不可订
+            </div>
+            <div class="fill_item" id="fillItem0" style="margin-left: 0;">
+                <div class="fill_delete" onclick="fillDelete(0)" style="display: none;"><i></i></div>
+                <div>
+                    <div class="fill_input">
+                        <div class="fill_hint">中文姓名</div>
+                        <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                    </div>
+                    <div class="error_hint" style="display: none;"><i class="iconfont icon-close"></i>请填写中文姓名</div>
+                </div>
+                <div class="clearfix">
+                    <div class="fill_input pull-left" style="width: 56%">
+                        <div class="fill_hint">身份证号码</div>
+                        <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                    </div>
+                    <div class="fill_input pull-right" style="width: 40%;">
+                        <select>
+                            <option value="">身份证</option>
+                            <option value="">护照</option>
+                            <option value="">军官证</option>
+                            <option value="">台胞证</option>
+                            <option value="">港澳通行证</option>
+                            <option value="">其它</option>
+                        </select>
+                    </div>
+                    <div class="error_hint pull-left" style="display: none;"><i class="iconfont icon-close"></i>请填写证件号码
+                    </div>
+                </div>
+                <div class="fill_input">
+                    <div class="fill_hint">乘机人手机号</div>
+                    <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                </div>
+                <div class="error_hint" style="display: none;"><i class="iconfont icon-close"></i>请填写乘机人手机号</div>
+            </div>
+            <div id="fillBox"></div>
+            <div class="add_passenger" onclick="addPassenger()">
+                <span><i class="iconfont icon-jia"></i></span>&nbsp;&nbsp;添加乘机人
+            </div>
+            <div class="phone_input clearfix">
+                <div class="pull-left phonecode_tit">联系人手机</div>
+                <div class="fill_input">
+                    <div class="fill_hint">用于查询订单和接受订单通知</div>
+                    <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                </div>
+                <div class="error_hint" style="display: none;margin-left: 80px;"><i class="iconfont icon-close"></i>请填写联系人手机号
+                </div>
+            </div>
+        </div>
+        <div class="voucher_wrap">
+            <div class="voucher_select clearfix">
+                <div class="voucher_tit pull-left">
+                    报销凭证
+                </div>
+                <div class="voucher_btn pull-right">
+                    <label class="label-switch" onclick="judgeCheckbox()">
+                        <input type="checkbox" id="takeCheckbox">
+
+                        <div class="checkbox"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="voucher_box" id="voucherBox" style="display: none;">
+                <div>
+                    <div class="fill_input">
+                        <div class="fill_hint hint_selected">凭证类型</div>
+                        <input type="text" value="行程单" onfocus="obtainInput(this)" onblur="loseInput(this)" readonly/>
+                    </div>
+                </div>
+                <div>
+                    <div class="fill_input">
+                        <div class="fill_hint hint_selected">配送方式</div>
+                        <select onfocus="obtainInput(this,'1')" onblur="loseInput(this,'1')">
+                            <option value="">请选择对应配送方式</option>
+                            <option value="1">配送方式1</option>
+                            <option value="2">配送方式2</option>
+                        </select>
+                    </div>
+                    <div class="error_hint" style="display: none;"><i class="iconfont icon-close"></i>请选择对应配送方式</div>
+                </div>
+                <div>
+                    <div class="fill_input">
+                        <div class="fill_hint">收件人</div>
+                        <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                    </div>
+                    <div class="error_hint" style="display: none;"><i class="iconfont icon-close"></i>请填写收件人姓名</div>
+                </div>
+                <div>
+                    <div class="fill_input">
+                        <div class="fill_hint">收件人手机号</div>
+                        <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                    </div>
+                    <div class="error_hint" style="display: none;"><i class="iconfont icon-close"></i>请填写收件人手机号</div>
+                </div>
+                <div>
+                    <div class="fill_input clearfix">
+                        <div class="fill_hint hint_selected">所在城市</div>
+                        <select class="pull-left" style="width: 50%;appearance:none;">
+                            <option value="">请选择省或直辖市</option>
+                            <option value="">上海</option>
+                            <option value="">北京</option>
+                        </select>
+                        <select class="pull-left" style="width: 50%;">
+                            <option value="">请选择区或市</option>
+                            <option value="">东城区</option>
+                            <option value="">西城区</option>
+                            <option value="">朝阳区</option>
+                        </select>
+                    </div>
+                    <div class="error_hint" style="display: none;"><i class="iconfont icon-close"></i>请选择所在城市</div>
+                </div>
+                <div>
+                    <div class="fill_input">
+                        <div class="fill_hint">详细地址</div>
+                        <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                    </div>
+                    <div class="error_hint" style="display: none;"><i class="iconfont icon-close"></i>请填写详细地址</div>
+                </div>
+                <div>
+                    <div class="fill_input" style="border: none;">
+                        <div class="fill_hint">邮编</div>
+                        <input type="text" onfocus="obtainInput(this)" onblur="loseInput(this)"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cost_details">
+            <div class="price_list text-center clearfix">
+                <div class="pull-left">
+                    <div>成人票</div>
+                    <div>&yen;530</div>
+                </div>
+                <div class="pull-left">
+                    <div>民航基金</div>
+                    <div>&yen;50.0</div>
+                </div>
+                <div class="pull-left">
+                    <div>燃油</div>
+                    <div>&yen;0.0</div>
+                </div>
+                <div class="pull-left" onclick="lookDetails()">
+                    查看退改签
+                </div>
+            </div>
+            <p>无免费行李额。最晚起飞前150分钟出票</p>
+        </div>
+        <footer class="foot_fill_pay row">
+            <div class="col-25 foot_price_total">&yen;<span>410</span></div>
+            <div class="col-75 foot_price_details">
+                <a href="#" class="button button-big button-fill button-warning">去支付</a>
+                <span class="pull-right" onclick="openPricePop()">详情&nbsp;
+                    <i class="iconfont icon-xiangshang"></i>
+                </span>
+            </div>
+        </footer>
+    </div>
+    <!--航班详情-->
+    <div class="flight_details_pop" id="flightPop" onclick="$(this).hide();" style="display: none;">
+        <div class="details_pop_tit"><i class="iconfont icon-feiji1"></i>航班详情</div>
+        <div class="flight_details_box">
+            <div class="aircraft_info">
+                <i class="pf pf_3U"></i>&nbsp;东航MU5128&nbsp;空客333(大)03月11日
+            </div>
+            <div class="clearfix">
+                <div class="date_city text-center pull-left">
+                    <div class="flight_date">21:50</div>
+                    <div class="flight_city">滨海</div>
+                </div>
+                <div class="flight_arrow pull-left">
+                    <i></i>
+                </div>
+                <div class="date_city text-center pull-left">
+                    <div class="flight_date">21:50</div>
+                    <div class="flight_city">滨海</div>
+                </div>
+            </div>
+            <div class="flight_card text-center">
+                <span>有餐盒</span>
+                <span>机型73D</span>
+            </div>
+        </div>
+    </div>
+    <!--退改签详情-->
+    <div class="rule_details" id="ruleDetails" style="display: none;">
+        <div class="rule_tit text-center">退改签规则</div>
+        <div class="rule_bd">
+            退票:航班起飞前2小时（含）前收取公布运价60%退票费，航班起飞前2小时（不含）后及 航班起飞后收取公布运价100%的退票费<br/>
+            改期:航班起飞前2小时（含）前收取公布运价40%的变更费；航班起飞前2小时（不含）后及航班起飞后按公布运价收取60%的变更费
+        </div>
+        <div class="rule_btn">
+            <a href="javascript:void(0);" class="button button-big" onclick="closeRule()">确认</a>
+        </div>
+    </div>
+    <!--价格明细-->
+    <div class="price_pop" id="priceDetail" style="display: none;">
+        <div class="">
+            <div class="price_tit text-center">支付金额明细
+                <span class="f_blue" onclick="closePricePop()">关闭&nbsp;&nbsp;</span>
+            </div>
+            <div class="type_title">
+                去程
+            </div>
+            <div class="price_type_list">
+                <div class="price_type_item clearfix">
+                    <div class="pull-left">成人票</div>
+                    <div class="pull-right">&yen;360.0*1</div>
+                </div>
+                <div class="price_type_item clearfix">
+                    <div class="pull-left">儿童票</div>
+                    <div class="pull-right">&yen;360.0*1</div>
+                </div>
+                <div class="price_type_item clearfix">
+                    <div class="pull-left">民航基金</div>
+                    <div class="pull-right">&yen;50.0*1</div>
+                </div>
+            </div>
+            <div class="type_title">
+                其它费用
+            </div>
+            <div class="price_type_list">
+                <div class="price_type_item clearfix">
+                    <div class="pull-left">保险费用</div>
+                    <div class="pull-right">&yen;0.0*1</div>
+                </div>
+                <div class="price_type_item clearfix">
+                    <div class="pull-left">物流费用</div>
+                    <div class="pull-right">&yen;0.0*1</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="0" id="personNumber"/>
+<script>
+    //    航班详情
+    function flightInfo() {
+        $("#flightPop").show();
+    }
+    //    文本框获取焦点时
+    function obtainInput(obj) {
+        $(obj).siblings(".fill_hint").animate({
+            top: ".4rem",
+            fontSize: ".6rem"
+        }, 300);
+    }
+    //    文本框失去焦点时
+    function loseInput(obj, is) {
+        if ($(obj).val() == "") {
+            $(obj).parent().nextAll(".error_hint").show();
+            $(obj).parent().css("border-color", "#E30609");
+            if (is != '1') {
+                $(obj).siblings(".fill_hint").animate({
+                    top: "1rem",
+                    fontSize: ".9rem"
+                }, 300);
+            }
+        } else {
+            $(obj).parent().nextAll(".error_hint").hide();
+            $(obj).parent().css("border-color", "#D8D8D8");
+            $(obj).siblings(".fill_hint").animate({
+                top: ".4rem",
+                fontSize: ".6rem"
+            }, 300);
+        }
+    }
+    //    添加乘机人
+    var howMany = parseInt($("#howMany").text());
+    function addPassenger() {
+        howMany++;
+        $("#howMany").text(howMany);
+        $(".fill_delete").show();
+        $(".fill_item").css("margin-left","2rem");
+        var i = parseInt($("#personNumber").val())+1;
+        $("#personNumber").val(i);
+        var html = "";
+        html += "<div class=\"fill_item\" id=\"fillItem" + i + "\">";
+        html += "<div class=\"fill_delete\" onclick=\"fillDelete("+i+")\"><i></i></div>";
+        html += "<div>";
+        html += "<div class=\"fill_input\">";
+        html += "<div class=\"fill_hint\">中文姓名</div>";
+        html += "<input type=\"text\" onfocus=\"obtainInput(this)\" onblur=\"loseInput(this)\"/>";
+        html += "</div>";
+        html += "<div class=\"error_hint\" style=\"display: none;\"><i class=\"iconfont icon-close\"></i>请填写中文姓名</div>";
+        html += "</div>";
+        html += "<div class=\"clearfix\">";
+        html += "<div class=\"fill_input pull-left\" style=\"width: 56%\">";
+        html += "<div class=\"fill_hint\">身份证号码</div>";
+        html += "<input type=\"text\" onfocus=\"obtainInput(this)\" onblur=\"loseInput(this)\"/>";
+        html += "</div>";
+        html += "<div class=\"fill_input pull-right\" style=\"width: 40%;\">";
+        html += "<select>";
+        html += "<option value=\"\">身份证</option>";
+        html += "<option value=\"\">护照</option>";
+        html += "<option value=\"\">军官证</option>";
+        html += "<option value=\"\">台胞证</option>";
+        html += "<option value=\"\">港澳通行证</option>";
+        html += "<option value=\"\">其它</option>";
+        html += "</select>";
+        html += "</div>";
+        html += "<div class=\"error_hint pull-left\" style=\"display: none;\"><i class=\"iconfont icon-close\"></i>请填写证件号码</div>";
+        html += "</div>";
+        html += "<div class=\"fill_input\">";
+        html += "<div class=\"fill_hint\">乘机人手机号</div>";
+        html += "<input type=\"text\" onfocus=\"obtainInput(this)\" onblur=\"loseInput(this)\"/>";
+        html += "</div>";
+        html += "<div class=\"error_hint\" style=\"display: none;\"><i class=\"iconfont icon-close\"></i>请填写乘机人手机号</div>";
+        html += "</div>";
+        $("#fillBox").append(html);
+    }
+//    删除乘机人
+    function fillDelete(id){
+        howMany--;
+        $("#howMany").text(howMany);
+        $("#fillItem"+id).remove();
+        var residue = $("[id^=fillItem]").length;
+        if(residue == 1){
+            $(".fill_delete").hide();
+            $(".fill_item").css("margin-left","0");
+        }
+    }
+//    报销凭证
+    function judgeCheckbox() {
+        if ($("#takeCheckbox").is(":checked")) {
+            $("#voucherBox").show();
+        } else {
+            $("#voucherBox").hide();
+        }
+    }
+    //    退改签详情
+    function lookDetails() {
+        $("#ruleDetails").show().animate({
+            top: "0"
+        }, 400);
+        $("body").scrollTop(0).css("overflow", "hidden");
+    }
+    function closeRule() {
+        $("#ruleDetails").animate({
+            top: "100%"
+        }, 400);
+        setTimeout(function () {
+            $("#ruleDetails").hide();
+        }, 400);
+        $("body").css("overflow", "initial");
+    }
+    //    打开价格明细弹框
+    function openPricePop() {
+        $("#priceDetail").show().animate({
+            top: "0"
+        }, 400);
+    }
+    //    关闭价格明细弹框
+    function closePricePop() {
+        $("#priceDetail").animate({
+            top: "100%"
+        }, 400);
+        setTimeout(function () {
+            $("#priceDetail").hide();
+        }, 400);
+    }
+</script>
+</body>
+</html>

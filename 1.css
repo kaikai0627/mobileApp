@@ -1,0 +1,97 @@
+@charset "utf-8";
+/*css代码重置*/
+.content {
+    overflow-x: hidden;
+}
+html{
+    height: 100%;
+}
+body {
+    height: 100%;
+    font: .8rem "microsoft yahei", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: static!important;
+}
+.page {
+    position: static!important;
+}
+ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: #bbb;
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #bbb;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #bbb;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #bbb;
+}
+.clear {
+    clear: both;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+img {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+/*航司logo*/
+.pf{
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+.spragging {
+    height: 3.5rem;
+    width: 100%;
+}
+/* 修改light7的picker */
+.bar-choose{
+    background: #F7F7F8;
+    height: 2.8rem;
+}
+.bar-choose .title{
+    text-align: center;
+    margin-left: 0;
+    line-height: 2.8rem;
+    font-size: 1rem;
+    left: 0;
+}
+.bar-choose button.button{
+    top: .2rem;
+}
