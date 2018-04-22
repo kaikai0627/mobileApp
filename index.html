@@ -17,12 +17,6 @@
 <body>
 <!-- page 2 -->
 <div class="page page-current">
-    <header class="bar bar-nav fixation_hd">
-        <button class="button pull-left" onclick="$.router.back('flight_list.html')">
-            <i class="iconfont icon-xiangzuo"></i>
-        </button>
-        <h1 class="title">填写乘机人</h1>
-    </header>
     <div class="booking_wrap">
         <div class="booking_info">
             <div class="flight_roughly" onclick="flightInfo()">
@@ -201,81 +195,6 @@
                 </span>
             </div>
         </footer>
-    </div>
-    <!--航班详情-->
-    <div class="flight_details_pop" id="flightPop" onclick="$(this).hide();" style="display: none;">
-        <div class="details_pop_tit"><i class="iconfont icon-feiji1"></i>航班详情</div>
-        <div class="flight_details_box">
-            <div class="aircraft_info">
-                <i class="pf pf_3U"></i>&nbsp;东航MU5128&nbsp;空客333(大)03月11日
-            </div>
-            <div class="clearfix">
-                <div class="date_city text-center pull-left">
-                    <div class="flight_date">21:50</div>
-                    <div class="flight_city">滨海</div>
-                </div>
-                <div class="flight_arrow pull-left">
-                    <i></i>
-                </div>
-                <div class="date_city text-center pull-left">
-                    <div class="flight_date">21:50</div>
-                    <div class="flight_city">滨海</div>
-                </div>
-            </div>
-            <div class="flight_card text-center">
-                <span>有餐盒</span>
-                <span>机型73D</span>
-            </div>
-        </div>
-    </div>
-    <!--退改签详情-->
-    <div class="rule_details" id="ruleDetails" style="display: none;">
-        <div class="rule_tit text-center">退改签规则</div>
-        <div class="rule_bd">
-            退票:航班起飞前2小时（含）前收取公布运价60%退票费，航班起飞前2小时（不含）后及 航班起飞后收取公布运价100%的退票费<br/>
-            改期:航班起飞前2小时（含）前收取公布运价40%的变更费；航班起飞前2小时（不含）后及航班起飞后按公布运价收取60%的变更费
-        </div>
-        <div class="rule_btn">
-            <a href="javascript:void(0);" class="button button-big" onclick="closeRule()">确认</a>
-        </div>
-    </div>
-    <!--价格明细-->
-    <div class="price_pop" id="priceDetail" style="display: none;">
-        <div class="">
-            <div class="price_tit text-center">支付金额明细
-                <span class="f_blue" onclick="closePricePop()">关闭&nbsp;&nbsp;</span>
-            </div>
-            <div class="type_title">
-                去程
-            </div>
-            <div class="price_type_list">
-                <div class="price_type_item clearfix">
-                    <div class="pull-left">成人票</div>
-                    <div class="pull-right">&yen;360.0*1</div>
-                </div>
-                <div class="price_type_item clearfix">
-                    <div class="pull-left">儿童票</div>
-                    <div class="pull-right">&yen;360.0*1</div>
-                </div>
-                <div class="price_type_item clearfix">
-                    <div class="pull-left">民航基金</div>
-                    <div class="pull-right">&yen;50.0*1</div>
-                </div>
-            </div>
-            <div class="type_title">
-                其它费用
-            </div>
-            <div class="price_type_list">
-                <div class="price_type_item clearfix">
-                    <div class="pull-left">保险费用</div>
-                    <div class="pull-right">&yen;0.0*1</div>
-                </div>
-                <div class="price_type_item clearfix">
-                    <div class="pull-left">物流费用</div>
-                    <div class="pull-right">&yen;0.0*1</div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <input type="hidden" value="0" id="personNumber"/>
